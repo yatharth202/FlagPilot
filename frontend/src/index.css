@@ -1,0 +1,240 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: #f4f4f5;
+  background: #09090b;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+
+  --app-bg: #09090b;
+  --sidebar-bg: #0e0e10;
+  --panel-bg: #141416;
+  --panel-inset: #0e0e10;
+  --border: #2b2b30;
+  --muted: #a1a1aa;
+  --subtle: #85858f;
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
+  --accent-soft: rgba(239, 68, 68, .11);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--app-bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--app-bg);
+  color: #f4f4f5;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #f87171;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: rgba(239, 68, 68, .32);
+  color: #fff;
+}
+
+
+@layer components {
+  .surface {
+    @apply rounded-xl border border-zinc-800 bg-[#141416];
+  }
+
+  .surface-muted {
+    @apply rounded-lg border border-zinc-800 bg-[#0e0e10];
+  }
+
+  .input-control {
+    @apply w-full rounded-lg border border-zinc-700 bg-[#0d0d0f] px-3.5 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-500 transition focus:border-red-500/80 focus:outline-none;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-sm font-medium text-zinc-200 transition hover:border-zinc-600 hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .page-title {
+    @apply text-2xl font-semibold tracking-tight text-zinc-50 sm:text-3xl;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-red-400;
+  }
+}
+
+
+.text-slate-600 {
+  color: #85858f !important;
+}
+
+.text-slate-500 {
+  color: #a1a1aa !important;
+}
+
+.text-slate-400 {
+  color: #b4b4bd !important;
+}
+
+.text-slate-300 {
+  color: #dedee3 !important;
+}
+
+.text-slate-200 {
+  color: #ededf0 !important;
+}
+
+.text-white {
+  color: #fafafa !important;
+}
+
+
+
+input,
+select,
+textarea {
+  caret-color: #f87171;
+}
+
+input[type="range"] {
+  accent-color: #ef4444;
+}
+
+
+
+select {
+  color-scheme: dark;
+  background-color: #141416;
+  color: #f4f4f5;
+  border: 1px solid #3f3f46;
+  border-radius: 9px;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+
+
+select option {
+  background-color: #18181b;
+  color: #f4f4f5;
+}
+
+
+
+select option:checked {
+  background-color: #3f3f46;
+  color: #ffffff;
+}
+
+
+
+select optgroup {
+  background-color: #18181b;
+  color: #f87171;
+  font-weight: 600;
+}
+
+
+select:focus {
+  border-color: #ef4444;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.12);
+}
+
+
+select:hover:not(:disabled) {
+  border-color: #52525b;
+}
+
+
+
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+select.input-control {
+  background-color: #141416;
+  color: #f4f4f5;
+  border-color: #3f3f46;
+}
+
+
+.surface,
+.surface-muted {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .015);
+}
+
+
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
